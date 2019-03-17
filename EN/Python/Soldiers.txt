@@ -1,0 +1,41 @@
+#	https://www.spoj.com/problems/SOLDIERS/
+
+test_cases = int(input())
+out = []
+for i in range(test_cases):
+	a, b = map(int, input().split())
+	
+	if (a==b and a%2==0):
+		out.append(int(a*b//2))
+	
+	elif (a==b and a%2==1):
+		temp = ((a//2)+1) * b
+		out.append(int(temp))
+	
+	elif (a!=b and a%2==0 and b%2==0):
+		out.append(int((a*b//2)))
+		
+	elif (a!=b and a%2==1 and b%2==1):
+		if (a>b):
+			temp = ((b//2)+1) * a
+			out.append(int(temp))
+		else:
+			temp = ((a//2)+1) * b
+			out.append(int(temp))
+			
+	elif (a!=b and ((a%2==1 and b%2==0) or (a%2==0 and b%2==1))):
+		if (a%2==0):
+			x = a*b // 2
+			y = ((b//2)+1) * a
+		elif (a%2==1):
+			x = a*b // 2
+			y = ((a//2)+1) * b
+			
+		if (x>y):
+			out.append(int(x))
+		else:
+			out.append(int(y))
+		
+    
+for i in range(test_cases):
+	print(out[i])

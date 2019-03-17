@@ -1,0 +1,12 @@
+# https://www.spoj.com/problems/JULKA/
+
+result = []
+for i in range(10):
+	ga = int(input()) #general num of apples
+	M = int(input()) #klaudia has M more
+	x = int((ga+M)//2)
+	result.append(int(x))
+	result.append(int(x-M))
+	
+for i in range (20):
+	print(result[i])
